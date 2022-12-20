@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'operator_projektu',
+    'corsheaders',
 ]
 
 
@@ -61,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'wolontariat_obsluga.urls'
@@ -98,18 +100,9 @@ DATABASES = {
         "PORT": env('DB_PORT'),
     }
 }
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'wolontariat_obsluga',
-#         'USER': 'roxor0',
-#         'PASSWORD': 'Watstudent1!',
-#         'HOST': 'inz.postgres.database.azure.com',
-#         'PORT': '5432',
-#     }
-# }
-
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3030',
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
