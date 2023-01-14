@@ -20,13 +20,14 @@ urlpatterns = [
     path('inicjatywa/update/<int:pk>/', views.update_initiative, name='update-items'),
     path('inicjatywa/item/<int:pk>/delete/', views.delete_initiative, name='delete-items'),
 
-    path('uzytkownik/create/', views.add_user, name='Dodaj operatora projektu'),
-    path('uzytkownik/all/', views.view_user, name='Pokaz operatorow projektu'),
-    path('uzytkownik/update/<int:pk>/', views.update_user, name='update-items'),
-    path('uzytkownik/item/<int:pk>/delete/', views.delete_user, name='delete-items'),
+    # path('uzytkownik/create/', views.add_user, name='Dodaj operatora projektu'),
+    # path('uzytkownik/all/', views.view_user, name='Pokaz operatorow projektu'),
+    # path('uzytkownik/update/<int:pk>/', views.update_user, name='update-items'),
+    # path('uzytkownik/item/<int:pk>/delete/', views.delete_user, name='delete-items'),
 
     path('uczestnik/create/', views.add_participant, name='Dodaj operatora projektu'),
     path('uczestnik/all/', views.view_participant, name='Pokaz operatorow projektu'),
     path('uczestnik/update/<int:pk>/', views.update_participant, name='update-items'),
+    path('uczestnik/accept/<int:pk>/', views.accept_participant, name='update-items'),
     path('uczestnik/item/<int:pk>/delete/', views.delete_participant, name='delete-items'),
 ]

@@ -1,6 +1,6 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import OperatorProjektu, Kategoria, Inicjatywa, Uzytkownik, Uczestnik
+from .models import OperatorProjektu, Kategoria, Inicjatywa,  Uczestnik
 
 
 class RelatedFieldAlternative(serializers.PrimaryKeyRelatedField):
@@ -44,14 +44,14 @@ class InicjatywaSerializer(serializers.ModelSerializer):
         depth = 1
 
 
-class UzytkownikSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Uzytkownik
-        fields = '__all__'
+# class UzytkownikSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Uzytkownik
+#         fields = '__all__'
 
 
 class UczestnikSerializer(serializers.ModelSerializer):
-    uzytkownik = RelatedFieldAlternative(queryset=Uzytkownik.objects.all(), serializer=UzytkownikSerializer)
+    #uzytkownik = RelatedFieldAlternative(queryset=Uzytkownik.objects.all(), serializer=UzytkownikSerializer)
     inicjatywa = RelatedFieldAlternative(queryset=Inicjatywa.objects.all(), serializer=InicjatywaSerializer)
     class Meta:
         model = Uczestnik

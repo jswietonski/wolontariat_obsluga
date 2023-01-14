@@ -30,18 +30,19 @@ class Inicjatywa(models.Model):
     lokalizacja = models.CharField(max_length=250)
 
 
-class Uzytkownik(models.Model):
-    username = models.CharField(max_length=50)
-    imie = models.CharField(max_length=50)
-    nazwisko = models.CharField(max_length=50)
-    email = models.EmailField()
-    numer_tel = models.CharField(max_length=11)
-    def __str__(self) -> str:
-        return self.username
+# class Uzytkownik(models.Model):
+#     username = models.CharField(max_length=50, unique=True)
+#     imie = models.CharField(max_length=50)
+#     nazwisko = models.CharField(max_length=50)
+#     email = models.EmailField()
+#     numer_tel = models.CharField(max_length=11)
+#
+#     def __str__(self) -> str:
+#         return self.username
 
 
 class Uczestnik(models.Model):
-    uzytkownik = models.ForeignKey(Uzytkownik, on_delete=models.SET_NULL, null=True)
+    uzytkownik = models.CharField(max_length=50, null=True)
     inicjatywa = models.ForeignKey(Inicjatywa, on_delete=models.SET_NULL, null=True)
     zaakceptowany = models.BooleanField(default=False)
     opis_siebie = models.TextField(null=True)
